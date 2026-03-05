@@ -1,6 +1,12 @@
 const express = require('express');
 const dotenv = require('dotenv');
-const cors = require('cors');
+app.use(cors({
+  origin: [
+    "http://localhost:5173", 
+    "https://aayush-seva-ai-frontend.onrender.com"
+  ],
+  credentials: true
+}));
 const connectDB = require('./config/db');
 
 // Load env vars
@@ -65,3 +71,4 @@ setInterval(async () => {
         console.error('Reminder dispatcher error:', error.message);
     }
 }, 60 * 60 * 1000);
+
