@@ -13,6 +13,9 @@ const app = express();
 
 // Middleware
 app.use(express.json());
+
+// Middleware
+const cors = require("cors");
 app.use(cors({
   origin: [
     "http://localhost:5173",
@@ -69,6 +72,3 @@ setInterval(async () => {
         console.error('Reminder dispatcher error:', error.message);
     }
 }, 60 * 60 * 1000);
-
-
-
