@@ -8,14 +8,6 @@ dotenv.config();
 
 // Connect to database
 connectDB();
-
-const app = express();
-
-// Middleware
-app.use(express.json());
-
-// Middleware
-const cors = require("cors");
 app.use(cors({
   origin: [
     "http://localhost:5173",
