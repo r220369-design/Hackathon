@@ -1,12 +1,6 @@
 const express = require('express');
 const dotenv = require('dotenv');
-app.use(cors({
-  origin: [
-    "http://localhost:5173", 
-    "https://aayush-seva-ai-frontend.onrender.com"
-  ],
-  credentials: true
-}));
+onst cors = require('cors');
 const connectDB = require('./config/db');
 
 // Load env vars
@@ -19,11 +13,16 @@ const app = express();
 
 // Middleware
 app.use(express.json());
+// Middleware
 app.use(cors({
-    origin: process.env.CLIENT_URL || '*',
+    origin: [
+        "http://localhost:5173",
+        process.env.CLIENT_URL
+    ],
     credentials: true
 }));
 
+app.use(express.json());
 // Route files
 const authRoutes = require('./routes/authRoutes');
 const triageRoutes = require('./routes/triageRoutes');
