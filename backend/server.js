@@ -14,12 +14,14 @@ const app = express();
 // Middleware
 app.use(express.json());
 // Middleware
+const cors = require("cors");
+
 app.use(cors({
-    origin: [
-        "http://localhost:5173",
-        process.env.CLIENT_URL
-    ],
-    credentials: true
+  origin: [
+    "http://localhost:5173",
+    process.env.CLIENT_URL
+  ],
+  credentials: true
 }));
 
 app.use(express.json());
@@ -70,4 +72,5 @@ setInterval(async () => {
         console.error('Reminder dispatcher error:', error.message);
     }
 }, 60 * 60 * 1000);
+
 
